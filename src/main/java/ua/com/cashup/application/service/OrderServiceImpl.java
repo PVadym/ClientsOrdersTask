@@ -35,8 +35,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order confirmOrder(Order order) {
-        order.setConfirmation(true);
-        return repository.save(order);
+        Order orderToConfirm = repository.findOne(order.getId());
+        orderToConfirm.setConfirmation(true);
+        return repository.save(orderToConfirm);
 
     }
 }

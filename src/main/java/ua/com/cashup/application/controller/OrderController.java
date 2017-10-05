@@ -32,8 +32,8 @@ public class OrderController {
                                      @RequestBody Order order){
 
         Client client = clientService.getClientByTIN(TIN);
-        client.getOrders().add(order);
-        clientService.edit(client);
+        order.setClient(client);
+        orderService.save(order);
         return ResponseEntity.ok("Order created successfully");
     }
 
@@ -55,7 +55,7 @@ public class OrderController {
         return ResponseEntity.ok(orders);
     }
 
-    @GetMapping(value = "/orders/confirm")
+    @PostMapping(value = "/orders/confirm")
     public ResponseEntity confirmOrder(@RequestBody Order order){
         Order confirmedOrder = orderService.confirmOrder(order);
         return ResponseEntity.ok(confirmedOrder);

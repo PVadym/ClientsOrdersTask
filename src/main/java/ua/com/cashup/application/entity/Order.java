@@ -1,5 +1,6 @@
 package ua.com.cashup.application.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import ua.com.cashup.application.enums.Currency;
 
 import javax.persistence.*;
@@ -34,8 +35,10 @@ public class Order {
     @Column
     private boolean confirmation;
 
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "client_id")
+    @JsonIgnore
     private Client client;
 
     public Order() {

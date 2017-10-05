@@ -3,9 +3,7 @@ package ua.com.cashup.application.entity;
 import ua.com.cashup.application.enums.Gender;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Вадим on 04.10.2017.
@@ -38,7 +36,7 @@ public class Client {
     private int TIN;
 
     @OneToMany(mappedBy = "client",orphanRemoval = true, cascade = CascadeType.ALL)
-    private Set<Order> orders = new HashSet<>();
+    private List<Order> orders = new ArrayList<>();
 
 
     public long getId() {
@@ -89,11 +87,11 @@ public class Client {
         this.TIN = TIN;
     }
 
-    public Set<Order> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 
-    public void setOrders(Set<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders.clear();
         if (orders != null) {
             this.orders.addAll(orders);
