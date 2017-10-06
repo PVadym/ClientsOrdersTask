@@ -34,7 +34,7 @@ public class Client {
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
-    @Column(name = "TIN")
+    @Column(name = "TIN", nullable = false)
     private int TIN;
 
     @OneToMany(mappedBy = "client",orphanRemoval = true, cascade = CascadeType.ALL)

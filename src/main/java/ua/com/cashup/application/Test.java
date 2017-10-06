@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ua.com.cashup.application.entity.Client;
 import ua.com.cashup.application.enums.Gender;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -14,9 +17,9 @@ import java.util.Date;
  */
 public class Test {
 
-//    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPATest");
+    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPATest");
 
-//    static EntityManager em = emf.createEntityManager();
+    static EntityManager em = emf.createEntityManager();
 
     private static String path = "C:\\IdeaProject\\ClientsOrdersTask\\src\\main\\java\\test.txt";
 
@@ -32,9 +35,12 @@ public class Test {
 //        mapper.
         mapper.writeValue(new File(path),Client.class);
         System.out.println(client);
+        em.getTransaction().begin();
+        em.persist(client);
+        em.getTransaction().commit();
 
 
-//        em.close();
-//        emf.close();
+        em.close();
+        emf.close();
     }
 }
