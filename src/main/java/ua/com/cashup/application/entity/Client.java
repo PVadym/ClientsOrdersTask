@@ -3,6 +3,7 @@ package ua.com.cashup.application.entity;
 import ua.com.cashup.application.enums.Gender;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.*;
 
 /**
@@ -10,6 +11,7 @@ import java.util.*;
  */
 @Entity
 @Table(name = "clients")
+@XmlRootElement
 public class Client {
 
 

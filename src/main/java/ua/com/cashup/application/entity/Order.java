@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import ua.com.cashup.application.enums.Currency;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
@@ -11,6 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "orders")
+@XmlRootElement
 public class Order {
 
     @Id
