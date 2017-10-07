@@ -1,4 +1,4 @@
-package ua.com.cashup;
+package ua.com.cashup.application;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

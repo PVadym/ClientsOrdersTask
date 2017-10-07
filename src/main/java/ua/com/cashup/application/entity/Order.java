@@ -43,6 +43,14 @@ public class Order {
     @JsonIgnore
     private Client client;
 
+    public Order(Date createDate, String status, double amount, Currency currency, boolean confirmation) {
+        this.createDate = createDate;
+        this.status = status;
+        this.amount = amount;
+        this.currency = currency;
+        this.confirmation = confirmation;
+    }
+
     public Order() {
         this.confirmation = false;
     }

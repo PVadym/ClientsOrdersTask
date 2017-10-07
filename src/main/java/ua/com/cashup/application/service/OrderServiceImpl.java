@@ -28,6 +28,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Order getById(long id) {
+        return repository.findOne(id);
+    }
+
+    @Override
     public Order save(Order order) {
         return repository.save(order);
 

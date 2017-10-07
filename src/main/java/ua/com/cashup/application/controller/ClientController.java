@@ -55,7 +55,7 @@ public class ClientController {
     }
 
     @GetMapping(value = "/clients/{TIN}", produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE })
-    public ResponseEntity getClientById(@PathVariable int TIN){
+    public ResponseEntity getClientByTIN(@PathVariable int TIN){
 
         LOGGER.info(String.format("Getting client with Taxpayer Identification Number %d",TIN));
 

@@ -1,5 +1,5 @@
--- DROP DATABASE clientsDB;
--- CREATE DATABASE  clientsDB;
+DROP DATABASE clientsDB;
+CREATE DATABASE  clientsDB;
 
 CREATE TABLE clients
 (

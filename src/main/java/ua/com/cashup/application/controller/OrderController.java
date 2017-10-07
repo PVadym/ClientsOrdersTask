@@ -86,6 +86,15 @@ public class OrderController {
     public ResponseEntity confirmOrder(@RequestBody Order order ){
 
         LOGGER.info(String.format("Confirming order with id %d", order.getId()));
+        Order orderFromDB = orderService.getById(order.getId());
+        if (orderFromDB == null){
+
+            LOGGER.error(String.format("Order with ID %d does not exist in DB", order.getId()));
+
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ApplicationError(String.format("Order with ID %d does not exist in DB", order.getId())));
+        }
+
         Order confirmedOrder = orderService.confirmOrder(order);
         LOGGER.info(String.format("Order with id %d confirm successfully.", order.getId()));
         return ResponseEntity.ok(confirmedOrder);

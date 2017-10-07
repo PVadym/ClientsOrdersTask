@@ -40,6 +40,17 @@ public class Client {
     @OneToMany(mappedBy = "client",orphanRemoval = true, cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
+    public Client() {
+    }
+
+    public Client(String surname, String name, Date birthday, Gender gender, int TIN, List<Order> orders) {
+        this.surname = surname;
+        this.name = name;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.TIN = TIN;
+        this.orders = orders;
+    }
 
     public long getId() {
         return id;
@@ -99,6 +110,8 @@ public class Client {
             this.orders.addAll(orders);
         }
     }
+
+
 
     @Override
     public String toString() {

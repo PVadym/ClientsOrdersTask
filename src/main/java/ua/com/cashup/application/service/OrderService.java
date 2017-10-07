@@ -14,6 +14,8 @@ public interface OrderService {
 
     List<Order> getAllOrdersByClient(Client client);
 
+    Order getById(long id);
+
     Order save(Order order);
 
     Order confirmOrder (Order order);
